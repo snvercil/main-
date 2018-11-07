@@ -1,0 +1,130 @@
+import bs4
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as soup
+
+my_url = 'http://www.espn.com/nba/statistics/player/_/stat/scoring-per-game'
+
+uClient = uReq(my_url)
+# calling function url open inside of a module called
+# request inside of a package called urllib
+# Calling my url essentially
+
+page_html = uClient.read()
+uClient.close()
+page_soup = soup(page_html, "html.parser")
+title_PTS = "PTS"
+title_AST = "AST"
+title_3PM = "3PM"
+
+table  = page_soup.find('table', {'class':'tablehead'})
+
+rows = table.find_all('tr')
+columns = table.find_all('td')
+player = table.find_all(text = True )
+
+array = player
+
+# class Playyer:
+#     def __init__(self, rank, name, gp, mpg, pts, fgm, fg_percent, three, three_perc, ftm, ft_percent):
+#
+#         self.rank = rank
+#         self.name = name
+#         self.gp = gp
+#         self.mpg = mpg
+#         self.pts = pts
+#         self.fgm = fgm
+#         self.fg_percent = fg_percent
+#         self.three = three
+#         self. three_perc = three_perc
+#         self.ftm =ftm
+#         self.ft_percent = ft_percent
+#
+#
+#
+#     def __str__(self):
+#         return str((self.rank, self.name, self.gp,
+#                      self.mpg,self.pts,self.fgm,self.fg_percent,
+#
+
+
+
+
+
+#
+#
+# # Names:
+# while i<10:
+#     i+=1
+#     if rows[i].text[2:13] != str('PLAYERTEAMG'):
+#         print(rows[i].text[1:14])
+# # for next 9 players
+# i=10
+# while i<20:
+#     i += 1
+#     if rows[i].text[2:13] != str('PLAYERTEAMG'):
+#         print(rows[i].text[2:13])
+#
+#
+# i=30
+# while i<40:
+#     i += 1
+#     if rows[i].text[2:13] !='PLAYERTEAMG':
+#         print(rows[i].text[2:13])
+
+j=12
+while j<25:
+    j+=1
+
+    if rows[1].text[1:j] == str(','):
+        brea
+
+
+
+
+
+# columns =[v.text.replace('\n', '') for v in rows[0].find_all('th')]
+#
+# for tr in page_soupsoup.find_all('tr')[2:]:
+#     tds = tr.find_all('td')
+#     print "Nome: %s, Cognome: %s, Email: %s" % \
+#           (tds[0].text, tds[1].text, tds[2].text
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# import bs4
+# from urllib.request import urlopen as uReq
+# from bs4 import BeautifulSoup as soup
+#
+# my_url = 'https://www.newegg.ca/Product/ProductList.aspx?Submit=ENE&DEPA=0&Order=BESTMATCH&Description=graphics+card+&N=-1&isNodeId=10'
+#
+# uClient = uReq(my_url)
+# # calling function url open inside of a module called
+# # request inside of a package called urllib
+#
+# page_html = uClient.read()
+# uClient.close()
+# page_soup = soup(page_html, "html.parser")
+#
+# # grabs each container
+# containers = page_soup.findAll("div", {"class":"item-container"})
+#
+# container = containers[0]
+#
+# print(container.div.div.a)
+#
+# C:\Users\sverc\.PyCharmCE2018.2\config\scratches\Web_scratch .py
